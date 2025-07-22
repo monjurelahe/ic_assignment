@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/core/imagepath.dart';
 import 'package:weather_app/core/textstyle.dart';
+import 'package:weather_app/feature/rest_screen.dart';
 
 class ForeCast extends StatelessWidget {
   const ForeCast({super.key});
@@ -48,34 +49,32 @@ class ForeCast extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 13),
-              SizedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(Icons.arrow_back_ios, color: Colors.white),
-                    _buildContainer(
-                      temperature: '19\u00B0C',
-                      day: 'Mon',
-                      imagePath: Assetpath.sun,
-                    ),
-                    _buildContainer(
-                      temperature: '18\u00B0C',
-                      day: 'Tue',
-                      imagePath: Assetpath.rain,
-                    ),
-                    _buildContainer(
-                      temperature: '18\u00B0C',
-                      day: 'Wed',
-                      imagePath: Assetpath.rain,
-                    ),
-                    _buildContainer(
-                      temperature: '19\u00B0C',
-                      day: 'Thu',
-                      imagePath: Assetpath.sun,
-                    ),
-                    Icon(Icons.arrow_forward_ios, color: Colors.white),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(Icons.arrow_back_ios, color: Colors.white),
+                  _buildContainer(
+                    temperature: '19\u00B0C',
+                    day: 'Mon',
+                    imagePath: Assetpath.sun,
+                  ),
+                  _buildContainer(
+                    temperature: '18\u00B0C',
+                    day: 'Tue',
+                    imagePath: Assetpath.rain,
+                  ),
+                  _buildContainer(
+                    temperature: '18\u00B0C',
+                    day: 'Wed',
+                    imagePath: Assetpath.rain,
+                  ),
+                  _buildContainer(
+                    temperature: '19\u00B0C',
+                    day: 'Thu',
+                    imagePath: Assetpath.sun,
+                  ),
+                  Icon(Icons.arrow_forward_ios, color: Colors.white),
+                ],
               ),
               // SizedBox(
               //   height: 200,
@@ -189,39 +188,45 @@ class ForeCast extends StatelessWidget {
                   ),
 
                   //2nd Container
-                  Container(
-                    height: 150,
-                    width: 165,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(19),
-                      gradient: LinearGradient(
-                        colors: [Color(0xff3E2D8F), Color(0xff9D52AC)],
+                  GestureDetector(
+                    onTap: () => RestScreen(),
+                    child: Container(
+                      height: 150,
+                      width: 165,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(19),
+                        gradient: LinearGradient(
+                          colors: [Color(0xff3E2D8F), Color(0xff9D52AC)],
+                        ),
+                        border: Border.all(
+                          color: Colors.white.withOpacity(0.8),
+                          width: 0.5,
+                          style: BorderStyle.solid,
+                        ),
                       ),
-                      border: Border.all(
-                        color: Colors.white.withOpacity(0.8),
-                        width: 0.5,
-                        style: BorderStyle.solid,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image(image: AssetImage(Assetpath.crosshairs)),
-                              SizedBox(width: 55),
-                              Text('UV INDEX', style: AppFontStyle.smallerText),
-                            ],
-                          ),
-                          SizedBox(height: 11),
-                          Text('4', style: AppFontStyle.subHeading),
-                          //SizedBox(height: 11),
-                          Text('Moderate', style: AppFontStyle.smallerText),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image(image: AssetImage(Assetpath.crosshairs)),
+                                SizedBox(width: 55),
+                                Text(
+                                  'UV INDEX',
+                                  style: AppFontStyle.smallerText,
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 11),
+                            Text('4', style: AppFontStyle.subHeading),
+                            //SizedBox(height: 11),
+                            Text('Moderate', style: AppFontStyle.smallerText),
+                          ],
+                        ),
                       ),
                     ),
                   ),

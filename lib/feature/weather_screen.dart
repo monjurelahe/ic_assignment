@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/core/appcolors.dart';
 import 'package:weather_app/core/textstyle.dart';
-import 'package:weather_app/feature/forecast_screen.dart';
+import 'package:weather_app/feature/rest_screen.dart';
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
@@ -35,7 +35,7 @@ class WeatherScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => const ForeCast()),
+                    MaterialPageRoute(builder: (_) => const RestScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
